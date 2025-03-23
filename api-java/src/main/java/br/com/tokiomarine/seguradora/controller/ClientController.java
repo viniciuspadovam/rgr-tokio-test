@@ -10,7 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,9 +22,6 @@ import br.com.tokiomarine.seguradora.mapper.ClientMapper;
 import br.com.tokiomarine.seguradora.model.Client;
 import br.com.tokiomarine.seguradora.service.ClientService;
 import lombok.RequiredArgsConstructor;
-
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
@@ -43,7 +42,7 @@ public class ClientController {
 
     @PostMapping
     public ResponseEntity<Client> create(@RequestBody @Valid ClientRequest dto) {
-        var client = clientMapper.toEntity(dto);
+        var client = clientMapper.requestToEntity(dto);
         var savedClient = clientService.create(client);
         LOGGER.info("Cliente {} salvo.", savedClient.getId());
         return ResponseEntity.status(HttpStatus.CREATED).body(savedClient);
@@ -51,7 +50,7 @@ public class ClientController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody @Valid ClientRequest dto) {
-        var updatedClientDto = clientMapper.toEntity(dto);
+        var updatedClientDto = clientMapper.requestToEntity(dto);
         var updatedClient = clientService.update(id, updatedClientDto);
         LOGGER.info("Cliente {} alterado.", updatedClient.getId());
         return ResponseEntity.ok(updatedClient);

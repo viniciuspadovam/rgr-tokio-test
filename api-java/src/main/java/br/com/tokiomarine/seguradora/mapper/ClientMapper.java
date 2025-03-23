@@ -8,7 +8,7 @@ import br.com.tokiomarine.seguradora.model.Client;
 @Component
 public class ClientMapper {
 
-    public Client toEntity(ClientRequest dto) {
+    public Client requestToEntity(ClientRequest dto) {
         Client entity = new Client();
         entity.setFirstName(dto.getFirstName());
         entity.setLastName(dto.getLastName());

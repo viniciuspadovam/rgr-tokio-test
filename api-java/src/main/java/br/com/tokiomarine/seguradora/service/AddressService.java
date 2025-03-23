@@ -6,7 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import br.com.tokiomarine.seguradora.dto.ViaCepResponse;
+import br.com.tokiomarine.seguradora.mapper.AddressMapper;
 import br.com.tokiomarine.seguradora.model.Address;
 import br.com.tokiomarine.seguradora.repository.AddressRepository;
 import br.com.tokiomarine.seguradora.repository.ClientRepository;
@@ -19,7 +22,9 @@ public class AddressService {
     private final Logger LOGGER = LoggerFactory.getLogger(AddressService.class);
 
     private final AddressRepository addressRepository;
+    private final AddressMapper addressMapper;
     private final ClientRepository clientRepository;
+    private final RestTemplate restTemplate;
 
     public Address create(Long clientId, Address address) {
         var client = clientRepository.findById(clientId)
@@ -47,6 +52,12 @@ public class AddressService {
         }
 
         addressRepository.deleteById(id);
+    }
+
+    public Address getByCep(String cep) {
+        ViaCepResponse response = restTemplate
+            .getForObject("https://viacep.com.br/ws/" + cep + "/json/", ViaCepResponse.class);
+        return addressMapper.fromApiResponse(response);
     }
 
 }
