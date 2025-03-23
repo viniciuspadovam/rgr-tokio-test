@@ -32,7 +32,7 @@ public class AddressService {
                 String message = "Cliente " + clientId + " não encontrado.";
                 LOGGER.error(message, EntityNotFoundException.class);
                 throw new EntityNotFoundException(message);
-    }       );
+        });
         address.setClient(client);
         return addressRepository.save(address);
     }
@@ -46,12 +46,19 @@ public class AddressService {
             .orElseThrow(() -> new EntityNotFoundException("Endereço " + id + " não encontrado."));
     }
 
-    public void delete(Long id) {
-        if(!addressRepository.existsById(id)) {
-            throw new EntityNotFoundException("Endereço " + id + " não encontrado.");
-        }
+    public void delete(Long clientId) {
+        var client = clientRepository.findById(clientId)
+            .orElseThrow(() -> {
+                String message = "Cliente " + clientId + " não encontrado.";
+                LOGGER.error(message, EntityNotFoundException.class);
+                throw new EntityNotFoundException(message);
+        });
 
-        addressRepository.deleteById(id);
+        if (client.getAddress() != null) {
+            addressRepository.delete(client.getAddress());
+            client.setAddress(null);
+            clientRepository.save(client);
+        }
     }
 
     public Address getByCep(String cep) {

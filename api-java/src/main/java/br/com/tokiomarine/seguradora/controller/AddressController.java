@@ -51,10 +51,10 @@ public class AddressController {
         return ResponseEntity.ok(updatedAddress);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        addressService.delete(id);
-        LOGGER.info("Endereço {} excluído.", id);
+    @DeleteMapping("/{clientId}")
+    public ResponseEntity<Void> delete(@PathVariable Long clientId) {
+        addressService.delete(clientId);
+        LOGGER.info("Endereço do cliente {} excluído.", clientId);
         return ResponseEntity.noContent().build();
     }
 
