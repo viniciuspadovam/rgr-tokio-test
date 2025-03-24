@@ -1,16 +1,30 @@
 package br.com.tokiomarine.seguradora;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.boot.web.server.LocalServerPort;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class ProvaTokioApplicationTests {
+import springfox.documentation.spring.web.plugins.Docket;
 
-	@Test
-	public void contextLoads() {
-	}
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class ProvaTokioApplicationTest {
 
+    @Autowired
+    private Docket docket;
+
+    @LocalServerPort
+    private int port;
+
+    @Test
+    void contextLoads() {
+        assertNotNull(docket, "Swagger Docket não deve ser nulo");
+    }
+
+    @Test
+    void applicationStartsSuccessfully() {
+        assertTrue(port > 0, "A aplicação deve iniciar em uma porta válida");
+    }
 }

@@ -22,9 +22,6 @@ import br.com.tokiomarine.seguradora.model.Address;
 import br.com.tokiomarine.seguradora.service.AddressService;
 import lombok.RequiredArgsConstructor;
 
-
-
-
 @RestController
 @RequestMapping("/api/v1/address")
 @RequiredArgsConstructor

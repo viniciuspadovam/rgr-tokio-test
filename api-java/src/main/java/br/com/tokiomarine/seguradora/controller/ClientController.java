@@ -23,7 +23,6 @@ import br.com.tokiomarine.seguradora.model.Client;
 import br.com.tokiomarine.seguradora.service.ClientService;
 import lombok.RequiredArgsConstructor;
 
-
 @RestController
 @RequestMapping("/api/v1/client")
 @RequiredArgsConstructor
