@@ -24,6 +24,10 @@ public class ClientService {
     public List<Client> findAll() {
         return clientRepository.findAll();
     }
+    
+    public List<Client> findByName(String name) {
+    	return clientRepository.findByName(name);
+    }
 
     public Client create(Client client) {
         return clientRepository.save(client);
