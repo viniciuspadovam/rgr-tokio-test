@@ -1,57 +1,36 @@
-# PROVA TESTE
+# Teste Vaga ***Tokio Marine*** Desenvolvedor Pleno
 
-## Criar uma API rest utilizando JPA
+Aplicação para teste da empresa *Tokio Marine* para desenvolvedor Pleno, um CRUD de uma entidade Client, com sua relação com a entidade Address (imagem 1).
 
-OBS: a conexão do banco já esta configurada via H2.
+![Imagem 1](model.png "Imagem 1")
+Imagem 1 - Modelagem usada como base para criação das entidades
 
-Para mapeamento das entidades verificar o arquivo (data.sql).
+O front-end contém duas telas, uma com a listagem, edição, exclusão e busca e clientes, e outra com um formulário para cadastro de clientes.
 
-A API deverá conter as seguintes características:
+### Principais tecnologias empregadas
 
-1. CRUD de usuários
-2. CRUD dos endereços do usuário
+- H2
+- Java
+- Spring Boot
+- SpringFox Swagger
+- JUnit 5
+- TypeScript
+- Angular
 
-**Consumir um serviço rest**
+## Executando o projeto
 
-Você devera consumir o seguinte serviço para retorna o endereço dado o CEP
+### Pré-requisitos
 
-Url: https://api.brasilaberto.com/v1/zipcode/{cep}
+Ter `Java`, `Maven`, `Node.js` e `Angular CLI` baixados na máquina.
 
-Exemplo de chamada
-```sh
-# Request
-$ curl  https://api.brasilaberto.com/v1/zipcode/01001000
+Para o banco de dados, não é necessário nenhuma altração, pois o H2 é configurado e começa a rodas automaticamente junto da apliação.
 
-# Response
-{
-    "meta": {
-        "currentPage": 1,
-        "itemsPerPage": 1,
-        "totalOfItems": 1,
-        "totalOfPages": 1
-    },
-    "result": {
-        "street": "Praça da Sé",
-        "complement": "lado ímpar",
-        "district": "Sé",
-        "districtId": "1",
-        "city": "São Paulo",
-        "cityId": "1",
-        "ibgeId": "3550308",
-        "state": "São Paulo",
-        "stateIbgeId": null,
-        "stateShortname": "SP",
-        "zipcode": "01001000"
-    }
-}
-```
+### Execução dos projetos
 
+Navegue até o diretório `api-java` no terminal e execute o comando `mvn spring-boot:run`.
 
-## Interface (Opcional)
+Navegue até o diretório `ui-angular` em um outro terminal e execute o comando `ng serve`.
 
-Criar uma interface consumindo os serviços desenvolvidos utilizando uma das tecnologias abaixo:
+## Documentação
 
-1. Angular
-2. Vue
-3. Thymeleaf
-
+Para acessar a documentação do Swagger, basta acessar a url `http://localhost:8080/consulta-usuario-tokio/swagger-ui.html`.
