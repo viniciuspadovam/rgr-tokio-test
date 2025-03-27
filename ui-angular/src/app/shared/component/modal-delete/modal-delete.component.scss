@@ -1,0 +1,41 @@
+.modal-delete {
+    width: 26rem;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header button:hover {
+    color: #cc1100;
+    transition: .4s all ease;
+}
+
+.body {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: .8rem;
+}
+
+.btn-cancel {
+    padding: .5rem .8rem;
+    background: #fff;
+    border: 1px solid #333;
+    font-weight: 500;
+    border-radius: .3rem;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    background: #e7e7e7;
+}

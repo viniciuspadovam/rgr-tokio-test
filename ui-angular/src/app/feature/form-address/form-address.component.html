@@ -1,0 +1,79 @@
+<div class="container">
+    <button type="button" class="btn-primary" (click)="back()">Voltar</button>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>CEP:</label>
+        <input formControlName="postalCode" (blur)="buscarCEP()" />
+        @if(form.get('postalCode')?.touched && form.get('postalCode')?.invalid) {
+          <div class="error">
+            @if(form.get('postalCode')?.errors?.['required']) {
+              <small>CEP é obrigatório.</small>
+            }
+          </div>
+        }
+      </div>
+  
+      <div class="form-group">
+        <label for="address">Logradouro:</label>
+        <input id="address" formControlName="address" type="text" />
+        @if(form.get('address')?.touched && form.get('address')?.invalid) {
+          <div class="error">
+            @if(form.get('address')?.errors?.['required']) {
+              <small>Logradouro é obrigatório.</small>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="complement">Complemento:</label>
+        <input id="complement" formControlName="complement" type="text" />
+        @if(form.get('complement')?.touched && form.get('complement')?.invalid) {
+          <div class="error">
+            @if(form.get('complement')?.errors?.['required']) {
+              <small>Complemento é obrigatório.</small>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Número:</label>
+        <input formControlName="number"/>
+        @if(form.get('number')?.touched && form.get('number')?.invalid) {
+          <div class="error">
+            @if(form.get('number')?.errors?.['required']) {
+              <small>Número é obrigatório.</small>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Cidade:</label>
+        <input formControlName="city"/>
+        @if(form.get('city')?.touched && form.get('city')?.invalid) {
+          <div class="error">
+            @if(form.get('city')?.errors?.['required']) {
+              <small>Cidade é obrigatório.</small>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Estado:</label>
+        <input formControlName="state"/>
+        @if(form.get('state')?.touched && form.get('state')?.invalid) {
+          <div class="error">
+            @if(form.get('state')?.errors?.['required']) {
+              <small>Estado é obrigatório.</small>
+            }
+          </div>
+        }
+      </div>
+
+      <button [disabled]="!form.valid" type="submit" class="btn-primary submit-btn">Enviar</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,23 @@
+<div class="modal-delete">
+    <div class="header">
+        <button class="btn-icon" (click)="close()">
+            <lucide-icon [img]="X" class="icon"></lucide-icon>
+        </button>
+    </div>
+    <div class="body">
+        <p>
+            Deseja realmente excluír o 
+            @if(isClient) {
+                cliente
+            } @else {
+                endereço de 
+            }
+            <strong>{{ params.fullName }}</strong>
+            ?
+        </p>
+    </div>
+    <div class="footer">
+        <button class="btn-cancel" (click)="close()">Cancelar</button>
+        <button class="btn-secondary" (click)="delete()">Deletar</button>
+    </div>
+</div>

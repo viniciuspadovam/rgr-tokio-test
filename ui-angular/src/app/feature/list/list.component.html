@@ -1,0 +1,19 @@
+<section class="list-section">
+    <header>
+        <form class="searchForm" #searchClientForm="ngForm">
+            <div class="form-group">
+                <input type="text" name="name" id="name" [(ngModel)]="search" #name="ngModel" placeholder="Digite no mínimo três caracteres para procurar.">
+                @if(name.touched && (name.value.length && name.value.length < 3)) {
+                    <span class="warning-text">Deve digitar ao menos três caracteres.</span>
+                }
+            </div>
+
+            <button class="btn-primary" [disabled]="search && (search.length && search.length < 3)" (click)="findClientByName()">Procurar</button>
+            <button class="btn-primary" (click)="createClientForm()">Adicionar</button>
+        </form>
+    </header>
+
+    <main>
+        <app-table [clients]="clients"></app-table>
+    </main>
+</section>

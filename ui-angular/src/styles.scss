@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-icon {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn-primary {
+    padding: .5rem .8rem;
+    background: #016ca5;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    border-radius: .3rem;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #01356d;
+}
+
+.btn-secondary {
+    padding: .5rem .8rem;
+    background: #cc1100;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    border-radius: .3rem;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #8b0000;
+}

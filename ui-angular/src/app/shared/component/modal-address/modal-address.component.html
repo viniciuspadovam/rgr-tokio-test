@@ -1,0 +1,42 @@
+<ng-container>
+    @if(params) {
+        <div class="modal-address">
+            <div class="header">
+                <p>Endereço de {{ params.fullName }}</p>
+                <button class="btn-icon" (click)="close()">
+                    <lucide-icon [img]="X" class="icon"></lucide-icon>
+                </button>
+            </div>
+            <div class="body">
+                <p>
+                    <span class="address-title">CEP: </span> 
+                    <span class="address-info">{{ params.address.postalCode }}</span>
+                </p>
+                <p>
+                    <span class="address-title">Logradouro: </span>
+                    <span class="address-info">{{ params.address.address }}</span>
+                </p>
+                <p>
+                    <span class="address-title">Número: </span>
+                    <span class="address-info">{{ params.address.number }}</span>
+                </p>
+                <p>
+                    <span class="address-title">Complemento: </span>
+                    <span class="address-info">{{ params.address.complement }}</span>
+                </p>
+                <p>
+                    <span class="address-title">Localidade: </span>
+                    <span class="address-info">{{ params.address.city }}</span>
+                </p>
+                <p>
+                    <span class="address-title">Estado: </span>
+                    <span class="address-info">{{ params.address.state }}</span>
+                </p>
+            </div>
+            <div class="footer">
+                <button class="btn-primary" (click)="updateAddressForm()">Editar</button>
+                <button class="btn-secondary" (click)="openDeleteAddressModal()">Deletar</button>
+            </div>
+        </div>
+    }
+</ng-container>

@@ -1,0 +1,35 @@
+table {
+    border-collapse: collapse;
+    width: 1024px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover:not(.tr-header) {
+    background-color: #c4cfee;
+}
+
+.td-address p {
+    color: #016ca5;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.td-actions > div {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-add-address {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.btn-add-address .icon {
+    font-size: .1rem;
+}

@@ -1,0 +1,43 @@
+<div class="container">
+    <button type="button" class="btn-primary" (click)="back()">Voltar</button>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">Nome:</label>
+        <input id="firstName" formControlName="firstName" type="text" />
+        @if(form.get('firstName')?.touched && form.get('firstName')?.invalid) {
+          <div class="error">
+            @if(form.get('firstName')?.errors?.['required']) {
+              <small>Nome é obrigatório.</small>
+            }
+          </div>
+        }
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Sobrenome:</label>
+        <input id="lastName" formControlName="lastName" type="text" />
+        @if(form.get('lastName')?.touched && form.get('lastName')?.invalid) {
+          <div class="error">
+            @if(form.get('lastName')?.errors?.['required']) {
+              <small>Sobrenome é obrigatório.</small>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input id="email" formControlName="email" type="email" />
+        @if(form.get('email')?.touched && form.get('email')?.invalid) {
+          <div class="error">
+            @if(form.get('email')?.errors?.['required']) {
+              <small>E-mail é obrigatório.</small>
+            }
+          </div>
+        }
+      </div>
+
+      <button [disabled]="!form.valid" type="submit" class="btn-primary submit-btn">Enviar</button>
+    </form>
+  </div>
+  

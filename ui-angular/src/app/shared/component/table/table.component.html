@@ -1,0 +1,38 @@
+<div>
+    <table>
+        <tr class="tr-header">
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Endereço</th>
+            <th>Ações</th>
+        </tr>
+        <ng-container>
+            @for (client of clients; track $index) {
+                <tr>
+                    <td>{{getFullName(client)}}</td>
+                    <td>{{client.email}}</td>
+                    <td class="td-address">
+                        @if(client.address) {
+                            <p (click)="openAddressModal(client)">Visualizar</p>
+                        } @else {
+                            <button class="btn-primary btn-add-address" (click)="createAddressForm(client.id)">
+                                <lucide-icon [img]="Plus" class="icon"></lucide-icon>
+                                Adicionar endereço
+                            </button>
+                        }
+                    </td>
+                    <td class="td-actions">
+                        <div>
+                            <button class="btn-icon" (click)="updateClientForm(client)">
+                                <lucide-icon [img]="Pencil" class="icon"></lucide-icon>
+                            </button>
+                            <button class="btn-icon" (click)="openDeleteClientModal(client)">
+                                <lucide-icon [img]="Trash2" class="icon"></lucide-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </ng-container>
+    </table>
+</div>

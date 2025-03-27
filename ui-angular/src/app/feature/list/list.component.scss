@@ -1,0 +1,42 @@
+.list-section header {
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-section main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchForm {
+    display: flex;
+    gap: 1rem;
+}
+
+.searchForm .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchForm input {
+    width: 500px;
+    height: 40px;
+    padding: .8rem;
+    border: 1px solid #333;
+    border-radius: .3rem;
+}
+
+.searchForm .warning-text {
+    color: #9f0712;
+    font-size: .875rem;
+}
+
+.searchForm button:disabled {
+    background: #8c8c8c;
+    color: #fff;
+    cursor: not-allowed
+}
+
